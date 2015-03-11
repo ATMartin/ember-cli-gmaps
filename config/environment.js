@@ -13,12 +13,20 @@ module.exports = function(environment) {
       }
     },
 
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
-
+ 
+  ENV.contentSecurityPolicy = {
+    'script-src': "'self' 'unsafe-eval' https://*.googleapis.com https://maps.gstatic.com",
+    'img-src': "'self' https://*.googleapis.com https://*.gstatic.com",
+    'font-src': "'self' https://*.gstatic.com",
+    'style-src': "'self' 'unsafe-inline' https://*.googleapis.com"
+  };
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
